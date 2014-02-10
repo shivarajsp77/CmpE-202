@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GumballMachine()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=inspector
+comment2.target=void\ setInspector(Inspector)
+comment3.params=c
+comment3.target=void\ validateCoin(Coin)
+numComments=4
