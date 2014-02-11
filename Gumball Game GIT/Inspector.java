@@ -34,6 +34,7 @@ public class Inspector extends Alien
         {    String color = randomPicker.choseColor();
             GreenfootImage image = new GreenfootImage(color);
             getWorld().addObject(new PopUpMessage(image), randomPicker.getX(), randomPicker.getY());//Show messsage  
+            
              //animateImage();             
         }    
         else
@@ -42,6 +43,8 @@ public class Inspector extends Alien
             GreenfootImage image = new GreenfootImage("green-bumball.png");
             getWorld().addObject(new PopUpMessage(image), greenPicker.getX(), greenPicker.getY());
         }
+        
+        Greenfoot.playSound("devil.mp3");
     }
     
      public int validateCoin(Coin c) 
