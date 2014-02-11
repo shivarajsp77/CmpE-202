@@ -49,6 +49,7 @@ public class GumballWorld extends World
         greenpicker.setLocation(669, 456);
         
         inspector.setPickers(randompicker, greenpicker);
+        gumballmachine.setPickers(randompicker, greenpicker);
                 
         
     }

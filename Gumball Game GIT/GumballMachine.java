@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Color;
 /**
  * Write a description of class GumballMachine here.
  * 
@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GumballMachine extends Actor
 {
     private Inspector inspector;
+    private RandomPicker rPicker;
+    private GreenPicker gPicker;
     private int coinInserted;
         
     public GumballMachine()
@@ -22,20 +24,26 @@ public class GumballMachine extends Actor
     {
        if (Greenfoot.mousePressed(this))
         {
-            System.out.println("Gumball Machine clicked");
            
             if (coinInserted == 2) //Quarter
             {
                 inspector.pickGumball();
+                
             }
             else if (coinInserted == 3) // Fake Quarter
             {
-                //Show message !!
+              getWorld().addObject(new PopUpMessage("This is a Fake Quarter"), inspector.getX(), inspector.getY()); 
+            }
+            else if (coinInserted == 1) 
+            {
+                 getWorld().addObject(new PopUpMessage("Please insert a Quarter!"), inspector.getX(), inspector.getY());//Show messsage!
             }
             else 
             {
-                //Show messsage!
+                 getWorld().addObject(new PopUpMessage("Insert coin for a Gumball!"), this.getX(), this.getY());//Show messsage!
             }
+            
+            coinInserted=0;
         } 
     }
       
@@ -52,5 +60,11 @@ public class GumballMachine extends Actor
         coinInserted = inspector.validateCoin(c);
         
         getWorld().removeObject(c);
+    }
+    
+     public void setPickers(RandomPicker rPicker, GreenPicker gPicker)
+    {
+        this.rPicker = rPicker;
+        this.gPicker = gPicker;
     }
 }

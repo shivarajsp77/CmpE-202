@@ -31,9 +31,17 @@ public class Inspector extends Alien
          int number = Greenfoot.getRandomNumber(100);
         
         if (number %2 == 0)
-            randomPicker.choseColor();
+        {    String color = randomPicker.choseColor();
+            GreenfootImage image = new GreenfootImage(color);
+            getWorld().addObject(new PopUpMessage(image), randomPicker.getX(), randomPicker.getY());//Show messsage  
+             //animateImage();             
+        }    
         else
+        {
             greenPicker.choseColor();
+            GreenfootImage image = new GreenfootImage("green-bumball.png");
+            getWorld().addObject(new PopUpMessage(image), greenPicker.getX(), greenPicker.getY());
+        }
     }
     
      public int validateCoin(Coin c) 
@@ -47,5 +55,34 @@ public class Inspector extends Alien
         }
          
         return 1;
+    }
+    
+    public void animateImage()
+    {
+        try
+        {
+            
+            GreenfootImage image = new GreenfootImage("green-bumball.png");
+            
+            for (int i= 0; i<3 ; i++)
+            {
+                PopUpMessage message = new PopUpMessage(image);
+                getWorld().addObject(message, randomPicker.getX()+(i*10), randomPicker.getY()+(i*10));//Show messsage  
+                //Thread.sleep(1000);
+                
+                if(i!=2)
+                {   
+                getWorld().removeObject(message);
+                
+                image.scale(image.getWidth() - 50, image.getHeight() - 50); 
+                //Thread.sleep(1000);
+                }
+            }
+
+        }
+        catch(Exception e)
+        {
+            ;
+        }
     }
 }

@@ -7,4 +7,6 @@ comment2.params=inspector
 comment2.target=void\ setInspector(Inspector)
 comment3.params=c
 comment3.target=void\ validateCoin(Coin)
-numComments=4
+comment4.params=rPicker\ gPicker
+comment4.target=void\ setPickers(RandomPicker,\ GreenPicker)
+numComments=5

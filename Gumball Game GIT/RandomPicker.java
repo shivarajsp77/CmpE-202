@@ -19,9 +19,9 @@ public class RandomPicker extends Picker
     
     public String choseColor()
     {
-        String[] color = {"Red","Blue","Green"};
+        String[] color = {"red-gumball.png","blue-gumball.png","green-bumball.png"};
         int idx = Greenfoot.getRandomNumber(color.length);
-            System.out.println("Color chosen "+color[idx]);
+
         return (color[idx]);
     }
 }
