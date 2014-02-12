@@ -31,6 +31,7 @@ public class GumballMachine extends Actor
                 
                 coinSound = new GreenfootSound("Quarter.wav");
                 coinSound.play();
+                Greenfoot.delay(70);
                 inspector.pickGumball();
             }
             else if (coinInserted == 3) // Fake Quarter
