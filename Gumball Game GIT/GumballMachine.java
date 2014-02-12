@@ -12,6 +12,7 @@ public class GumballMachine extends Actor
     private RandomPicker rPicker;
     private GreenPicker gPicker;
     private int coinInserted;
+    private  GreenfootSound coinSound;
         
     public GumballMachine()
     {
@@ -33,6 +34,8 @@ public class GumballMachine extends Actor
             else if (coinInserted == 3) // Fake Quarter
             {
               getWorld().addObject(new PopUpMessage("This is a Fake Quarter"), inspector.getX(), inspector.getY()); 
+              coinSound = new GreenfootSound("FakeCoin.wav");
+              coinSound.play();
             }
             else if (coinInserted == 1) 
             {
