@@ -34,6 +34,7 @@ public class Coin extends Actor
         
             if(mouseX>x-10 && mouseX<x+10 && mouseY>y-10 && mouseY<y+10){               
                 gumballMachine.validateCoin(this);
+                
             }
     }
     

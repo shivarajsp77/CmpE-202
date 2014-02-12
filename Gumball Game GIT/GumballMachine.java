@@ -28,8 +28,10 @@ public class GumballMachine extends Actor
            
             if (coinInserted == 2) //Quarter
             {
-                inspector.pickGumball();
                 
+                coinSound = new GreenfootSound("Quarter.wav");
+                coinSound.play();
+                inspector.pickGumball();
             }
             else if (coinInserted == 3) // Fake Quarter
             {
@@ -40,10 +42,14 @@ public class GumballMachine extends Actor
             else if (coinInserted == 1) 
             {
                  getWorld().addObject(new PopUpMessage("Please insert a Quarter!"), inspector.getX(), inspector.getY());//Show messsage!
+                 coinSound = new GreenfootSound("Penny.wav");
+                 coinSound.play();
             }
             else 
             {
                  getWorld().addObject(new PopUpMessage("Insert coin for a Gumball!"), this.getX(), this.getY());//Show messsage!
+                 coinSound = new GreenfootSound("InsertQuarter.mp3");
+                 coinSound.play();
             }
             
             coinInserted=0;
