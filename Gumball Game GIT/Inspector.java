@@ -29,22 +29,28 @@ public class Inspector extends Alien
     public void pickGumball()
     {
          int number = Greenfoot.getRandomNumber(100);
-        
+         int x=0;
+         int y=0;
+         String image =null;
         if (number %2 == 0)
         {    String color = randomPicker.choseColor();
-            GreenfootImage image = new GreenfootImage(color);
-            getWorld().addObject(new PopUpMessage(image), randomPicker.getX(), randomPicker.getY());//Show messsage  
+             image = color;
+             x = randomPicker.getX();
+             y = randomPicker.getY();
+            //Show messsage  
             
              //animateImage();             
         }    
         else
         {
             greenPicker.choseColor();
-            GreenfootImage image = new GreenfootImage("green-bumball.png");
-            getWorld().addObject(new PopUpMessage(image), greenPicker.getX(), greenPicker.getY());
+            image = "green-bumball.png";
+            x=greenPicker.getX();
+            y=greenPicker.getY();            
         }
+        Greenfoot.playSound("someone_crunching.mp3");
+        animate(image,x,y);
         
-        Greenfoot.playSound("devil.mp3");
     }
     
      public int validateCoin(Coin c) 
@@ -60,7 +66,13 @@ public class Inspector extends Alien
         return 1;
     }
     
-    public void animateImage()
+    public void animate(String image,int x,int y){
+        PopUpMessage popImg = new PopUpMessage(image,x);
+        getWorld().addObject(popImg, x, y);     
+        
+    }
+    public void animateImage(){
+    }
     {
         try
         {
@@ -69,7 +81,7 @@ public class Inspector extends Alien
             
             for (int i= 0; i<3 ; i++)
             {
-                PopUpMessage message = new PopUpMessage(image);
+                PopUpMessage message = new PopUpMessage("green-bumball.png",1);
                 getWorld().addObject(message, randomPicker.getX()+(i*10), randomPicker.getY()+(i*10));//Show messsage  
                 //Thread.sleep(1000);
                 

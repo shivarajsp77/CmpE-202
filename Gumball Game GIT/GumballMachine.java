@@ -70,6 +70,8 @@ public class GumballMachine extends Actor
         coinInserted = inspector.validateCoin(c);
         
         getWorld().removeObject(c);
+        getWorld().addObject(new PopUpMessage("Have a Coin"), this.getX(), this.getY());
+        
     }
     
      public void setPickers(RandomPicker rPicker, GreenPicker gPicker)

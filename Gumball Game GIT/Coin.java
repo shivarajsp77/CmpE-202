@@ -32,7 +32,7 @@ public class Coin extends Actor
         int x = gumballMachine.getX();
         int y = gumballMachine.getY();
         
-            if(mouseX>x-10 && mouseX<x+10 && mouseY>y-10 && mouseY<y+10){               
+            if(mouseX>x-10 && mouseX<x+10 && mouseY>y-10 && mouseY<y+10){                
                 gumballMachine.validateCoin(this);
                 
             }
